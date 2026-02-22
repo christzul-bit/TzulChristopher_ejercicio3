@@ -1,6 +1,8 @@
 ﻿//Programa con Repositorio 3
 double descuento = 0;
 double descuentoCupon = 0;
+int nvlSospecha = 0;
+double recargo = 0;
 Console.WriteLine("Ingrese el tipo de cliente \n" +
     "1)Estudiante \n" +
     "2)Docente \n" +
@@ -108,6 +110,40 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             break;
         default: Console.WriteLine("Opcion invalida en el tipo de cliente"); break;
     }
+    if(cupon == "s")
+    {
+        Console.WriteLine("Ingrese el primer caracter del codigo_");
+        string codigoCupon = Console.ReadLine();
+        Console.WriteLine("Ingrese solo la secuencia numerica del codigo_");
+        int numCupon = int.Parse(Console.ReadLine());
+        if(codigoCupon == "u" && numCupon %2 == 0)
+        {
+            descuentoCupon = monto * 0.15;
+        }
+        else
+        {
+            if(codigoCupon != "u")
+            {
+                nvlSospecha += 1;
+            }
+            if(numCupon  %2 != 0)
+            {
+                nvlSospecha += 1;
+            }
+        }
+    }
+    if(nvlSospecha >= 2)
+    {
+        Console.WriteLine($"Se a detectado una amenaza de fraude de nivel {nvlSospecha} \n" +
+            $"se anularan los descuentos y se aplicara un recargo del 20%");
+        descuento = 0;
+        descuentoCupon = 0;
+        recargo = monto * 0.2;
+    }
+    Console.WriteLine($"Descuento aplicado {descuento} \n" +
+        $"Descuento por cupon de {descuentoCupon} \n" +
+        $"recargo aplicado {recargo} \n" +
+        $"El pago total es de {monto - descuento - descuentoCupon + recargo}");
 }else
 {
     Console.WriteLine("Valor invalido, revise sus respuestas en monto y cupon");
