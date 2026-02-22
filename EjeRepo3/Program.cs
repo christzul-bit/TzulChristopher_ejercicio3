@@ -37,6 +37,76 @@ if(monto > 0 && cupon == "s" || cupon == "n")
                 default: Console.WriteLine("Opcion invalida en el metodo de pago"); break;
             }
             break;
+        case 2:
+            switch(pago)
+            {
+                case 1:
+                    if(monto > 200)
+                    {
+                        descuento = monto * 0.1;
+                    }break;
+                case 2:
+                    if(monto > 200)
+                    {
+                        descuento = monto * 0.07;
+                    }break;
+                case 3:
+                    if(monto > 300)
+                    {
+                        descuento = monto * 0.08;
+                    }break;
+                default: Console.WriteLine("Opcion invalida en el metodo de pago"); break;
+            }
+            break;
+        case 3:
+            switch (pago)
+            {
+                case 1:
+                    if (monto > 200)
+                    {
+                        descuento = monto * 0.12;
+                    }
+                    break;
+                case 2:
+                    if (monto > 200)
+                    {
+                        descuento = monto * 0.1;
+                    }
+                    break;
+                case 3:
+                    if (monto > 300)
+                    {
+                        descuento = monto * 0.1;
+                    }
+                    break;
+                default: Console.WriteLine("Opcion invalida en el metodo de pago"); break;
+            }
+            break;
+        case 4:
+            switch (pago)
+            {
+                case 1:
+                    if (monto > 250)
+                    {
+                        descuento = monto * 0.1;
+                    }
+                    break;
+                case 2:
+                    if (monto > 300)
+                    {
+                        descuento = monto * 0.1;
+                    }
+                    break;
+                case 3:
+                    if (monto > 350)
+                    {
+                        descuento = monto * 0.08;
+                    }
+                    break;
+                default: Console.WriteLine("Opcion invalida en el metodo de pago"); break;
+            }
+            break;
+        default: Console.WriteLine("Opcion invalida en el tipo de cliente"); break;
     }
 }else
 {
