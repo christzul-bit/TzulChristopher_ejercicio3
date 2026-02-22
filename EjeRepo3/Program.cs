@@ -23,9 +23,14 @@ if(monto > 0 && cupon == "s" || cupon == "n")
     switch (opcion)
     {
         case 1:
+            if(monto > 5000)
+            {
+                nvlSospecha += 1;
+            }
             switch (pago)
             {
                 case 1:
+                    nvlSospecha -= 1;
                     descuento = monto * 0.1;
                     break;
                 case 2:
@@ -40,9 +45,14 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             }
             break;
         case 2:
-            switch(pago)
+            if (monto > 6000)
+            {
+                nvlSospecha += 1;
+            }
+            switch (pago)
             {
                 case 1:
+                    nvlSospecha -= 1;
                     if(monto > 200)
                     {
                         descuento = monto * 0.1;
@@ -61,9 +71,14 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             }
             break;
         case 3:
+            if(monto > 10000)
+            {
+                nvlSospecha += 2;
+            }
             switch (pago)
             {
                 case 1:
+                    nvlSospecha -= 1;
                     if (monto > 200)
                     {
                         descuento = monto * 0.12;
@@ -85,9 +100,14 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             }
             break;
         case 4:
+            if(monto < 10000)
+            {
+                nvlSospecha += 2;
+            }
             switch (pago)
             {
                 case 1:
+                    nvlSospecha -= 1;
                     if (monto > 250)
                     {
                         descuento = monto * 0.1;
@@ -132,7 +152,7 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             }
         }
     }
-    if(nvlSospecha >= 2)
+    if(nvlSospecha >= 3)
     {
         Console.WriteLine($"Se a detectado una amenaza de fraude de nivel {nvlSospecha} \n" +
             $"se anularan los descuentos y se aplicara un recargo del 20%");
