@@ -100,7 +100,7 @@ if(monto > 0 && cupon == "s" || cupon == "n")
             }
             break;
         case 4:
-            if(monto < 10000)
+            if(monto > 10000)
             {
                 nvlSospecha += 2;
             }
